@@ -1,0 +1,245 @@
+:root {
+  --verde: #00916E;
+  --beige: #FEEFE5;
+  --amarillo: #FFCF00;
+  --naranja: #EE6123;
+  --rosado: #FA003F;
+  --blanco: #FFFFFF;
+  --negro: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--beige);
+  color: var(--negro);
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  padding: 20px 40px;
+  background-color: var(--verde);
+  color: var(--blanco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--blanco);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--amarillo);
+}
+
+.perfil-section, .habilidades-section, #contacto {
+  padding: 60px 20px;
+  background: var(--blanco);
+  text-align: center;
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-circular {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+}
+
+.parrafos h2 {
+  font-size: 24px;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.botones button,
+.contenido-proyecto button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--naranja);
+  color: var(--blanco);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botones button:hover,
+.contenido-proyecto button:hover {
+  background-color: var(--rosado);
+}
+
+#proyectos-slider {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider-contenedor {
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 145, 110, 0.6);
+  z-index: 1;
+}
+
+.slide.visible {
+  display: flex;
+}
+
+.contenido-proyecto {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-tarjeta {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: var(--rosado);
+  color: white;
+  border: none;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flecha:hover {
+  background: var(--naranja);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.flecha.izq { left: 20px; }
+.flecha.der { right: 20px; }
+
+.title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: var(--verde);
+}
+
+.grid-habilidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.habilidad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.habilidad img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.habilidad p {
+  font-weight: bold;
+  color: var(--verde);
+}
+
+.formulario-contacto {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--beige);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.formulario-contacto p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+.formulario-contacto a {
+  color: var(--rosado);
+  text-decoration: none;
+}
+.formulario-contacto a:hover {
+  text-decoration: underline;
+}

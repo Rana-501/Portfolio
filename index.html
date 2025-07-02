@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Mi Portafolio</div>
+    <nav>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#proyectos-slider">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+  <section id="sobre-mi" class="perfil-section">
+    <div class="contenedor">
+      <div class="izquierda">
+        <img src="imagenes/perfil.jpg" alt="Foto de perfil" class="imagen-circular" />
+      </div>
+      <div class="derecha">
+        <div class="parrafos">
+          <h2>Hola, soy Germán Mendoza</h2>
+          <p>Actualmente estoy cursando mi 4to año de ingenieria en relidad virtual, apasionado en el mundo del desarrollo 3d y el diseño
+          </p>
+        </div>
+        <div class="botones">
+          <a href="#contacto"><button>Contáctame</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="habilidades" class="habilidades-section">
+    <h2 class="title">Habilidades Técnicas</h2>
+    <div class="grid-habilidades">
+      <div class="habilidad">
+        <img src="imagenes/unity.png" alt="Unity" />
+        <p>Unity</p>
+      </div>
+      <div class="habilidad">
+        <img src="imagenes/blender.png" alt="Blender" />
+        <p>Blender</p>
+      </div>
+      <div class="habilidad">
+        <img src="imagenes/unreal.png" alt="Unreal Engine" />
+        <p>Unreal</p>
+      </div>
+    </div>
+  </section>
+  <section id="proyectos-slider">
+    <div class="slider-contenedor">
+      <div class="slide visible" style="background-image: url('imagenes/proyecto1.jpg');">
+        <div class="contenido-proyecto">
+          <img src="imagenes/proyecto1.jpg" alt="Proyecto 1" class="img-tarjeta" />
+          <h2>Chanchitos Run</h2>
+          <p>Chanchitos run es una experiencia multijugador donde protagonizaras a un chanchito que tiene que correr en un emocionante carrera por la granja</p>
+          <a href="proyectos/proyecto1.html"><button>Ver más</button></a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('imagenes/proyecto2.jpg');">
+        <div class="contenido-proyecto">
+          <img src="imagenes/proyecto2.jpg" alt="Proyecto 2" class="img-tarjeta" />
+          <h2>Iteralizard</h2>
+          <p>Inspirado en en la frase "tu vida como moneda de cambio, surge este videojuego que trata de una lagartija que debe vender partes de su cuerpo para sobrevivir en un mundo hostil</p>
+          <a href="proyectos/proyecto2.html"><button>Ver más</button></a>
+        </div>
+      </div>
+    </div>
+    <button class="flecha izq" onclick="cambiarSlide(-1)" >◁</button>
+    <button class="flecha der" onclick="cambiarSlide(1)">▷</button>
+  </section>
+  <section id="contacto">
+    <h2 class="title">Contacto</h2>
+    <div class="formulario-contacto">
+      <p><strong>Email:</strong> froggybussin3s@gmail.com</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/" target="_blank">@</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/german-mendoza-32a280332/" target="_blank">linkedin.com</a></p>
+    </div>
+  </section>
+  <script>
+    let indiceSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function cambiarSlide(direccion) {
+      slides[indiceSlide].classList.remove('visible');
+      indiceSlide = (indiceSlide + direccion + slides.length) % slides.length;
+      slides[indiceSlide].classList.add('visible');
+    }
+  </script>
+</body>
+</html>
