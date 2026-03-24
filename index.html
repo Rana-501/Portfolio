@@ -71,21 +71,21 @@
 
       <a class="skill-card" href="https://unity.com/" target="_blank">
         <div class="skill-icon unity">
-          <img src="imagenes/unity.png" alt="Unity" style="width:40px;height:40px;object-fit:contain;" />
+          <img src="imagenes/logos/unity.png" alt="Unity" style="width:40px;height:40px;object-fit:contain;" />
         </div>
         <p>Unity</p>
       </a>
 
       <a class="skill-card" href="https://www.blender.org/" target="_blank">
          <div class="skill-icon blender">
-          <img src="imagenes/blender.png" alt="Blender" style="width:40px;height:40px;object-fit:contain;" />
+          <img src="imagenes/logos/blender.png" alt="Blender" style="width:40px;height:40px;object-fit:contain;" />
          </div>
          <p>Blender</p>
       </a>
       
       <a class="skill-card" href="https://www.unrealengine.com/" target="_blank">
         <div class="skill-icon unreal">
-          <img src="imagenes/unreal.png" alt="Unreal Engine" style="width:40px;height:40px;object-fit:contain;" />
+          <img src="imagenes/logos/unreal.png" alt="Unreal Engine" style="width:40px;height:40px;object-fit:contain;" />
         </div>
         <p>Unreal Engine</p>
       </a>
@@ -97,11 +97,17 @@
   <section id="proyectos">
     <p class="section-title">// trabajos</p>
     <h2 class="section-heading">Proyectos</h2>
+    <div class="filtros">
+    <button class="filtro activo" onclick="filtrar('todos')">Todos</button>
+    <button class="filtro" onclick="filtrar('unity')">Unity</button>
+    <button class="filtro" onclick="filtrar('blender')">Blender</button>
+    <button class="filtro" onclick="filtrar('unreal')">Unreal</button>
+  </div>
     <div class="projects-list">
 
-      <div class="project-card" onclick="openModal('chanchitos')">
+      <div class="project-card" data-categoria="unity" onclick="openModal('chanchitos')">
         <div class="project-thumb">
-          <img src="imagenes/proyecto1.jpg" alt="Chanchitos Run" />
+          <img src="imagenes/proyectos/proyecto1/proyecto1.jpg" alt="Chanchitos Run" />
         </div>
         <div class="project-body">
           <h3>Chanchitos Run</h3>
@@ -114,9 +120,9 @@
         </div>
       </div>
 
-      <div class="project-card" onclick="openModal('iteralizard')">
+      <div class="project-card" data-categoria="unity" onclick="openModal('iteralizard')">
         <div class="project-thumb">
-          <img src="imagenes/proyecto2.jpg" alt="Iteralizard" />
+          <img src="imagenes/proyectos/proyecto2/proyecto2.jpg" alt="Iteralizard" />
         </div>
         <div class="project-body">
           <h3>Iteralizard</h3>
@@ -129,9 +135,9 @@
         </div>
       </div>
 
-      <div class="project-card" onclick="openModal('hades')">
+      <div class="project-card" data-categoria="blender" onclick="openModal('hades')">
         <div class="project-thumb">
-          <img src="imagenes/proyecto3.png" alt="Assets Estilo Hades" />
+          <img src="imagenes/proyectos/proyecto3/proyecto3.png" alt="Assets Estilo Hades" />
         </div>
         <div class="project-body">
           <h3>Assets estilo Hades</h3>
@@ -144,6 +150,20 @@
         </div>
       </div>
 
+       <div class="project-card" data-categoria="blender" onclick="openModal('piedras')">
+        <div class="project-thumb">
+          <img src="imagenes/proyectos/proyecto4/proyecto4.png" alt="Assets Estilo Hades" />
+        </div>
+        <div class="project-body">
+          <h3>Props piedras</h3>
+          <p>Recopilacion de assets que hice durante una clase de modelado organico</p>
+          <div style="margin-top:0.75rem;">
+            <span class="project-tag">3D</span>
+            <span class="project-tag">Diseño de Assets</span>
+            <span class="project-tag">Blender</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -203,33 +223,46 @@
   var proyectos = {
     chanchitos: {
       title: 'Chanchitos Run',
-      desc: 'Chanchitos run es una experiencia multijugador donde protagonizaras a un chanchito que tiene que correr en un emocionante carrera por la granja',
+      desc: 'Chanchitos run esta pensado como una experiencia multijugador donde los jugadores interpretaran a un bonito chanchito y tendran que competir para ver cual es el chanchito mas rapido, proyecto desarrolado en unity, se uso PUN2 para la experiencia multijugador y blender para modelar los personajes y texturizarlos',
       tags: ['Multiplayer', 'Unity', '3D'],
       imgs: [
-        'imagenes/proyecto1.jpg',
-        'imagenes/proyecto1_2.jpg',
-        'imagenes/proyecto1_3.jpg'
+      'imagenes/proyectos/proyecto1/proyecto1.jpg',
+      'imagenes/proyectos/proyecto1/proyecto1_2.jpg',
+      'imagenes/proyectos/proyecto1/proyecto1_3.jpg'
       ]
     },
     iteralizard: {
       title: 'Iteralizard',
-      desc: 'Inspirado en la frase tu vida como moneda de cambio: un videojuego donde protagonizas a una lagartija que debe vender partes de su cuerpo para sobrevivir en un mundo hostil.',
+      desc: 'Inspirado en la frase tu vida como moneda de cambio: Iteralizard es prototipo de videojuego donde protagonizas a una lagartija que aprovchando su factor de regeneracion, debe vender partes de su cuerpo para sobrevivir en un mundo hostil, obviamente esto tiene un costo.',
       tags: ['Singleplayer', 'Diseno de niveles', 'Unity'],
       imgs: [
-        'imagenes/proyecto2.jpg',
-        'imagenes/proyecto2_2.jpg',
-        'imagenes/proyecto2_3.jpg'
+      'imagenes/proyectos/proyecto2/proyecto2.jpg',
+      'imagenes/proyectos/proyecto2/proyecto2_2.jpg',
+      'imagenes/proyectos/proyecto2/proyecto2_3.jpg'
       ]
     },
     hades:{
       title: 'Assets Hades',
       desc: 'Para una clase de cracion de assets decidimos convertir los assets 2d de Hades a un proyecto 3d en unity',
-      tags: ['Singleplayer', 'Diseno de niveles', 'Unity'],
+      tags: ['Diseño de assets', '3D', 'Unity'],
       imgs: [
-        'imagenes/proyecto3.png',
-        'imagenes/proyecto3_2.png',
-        'imagenes/proyecto3_3.png',
-        'imagenes/proyecto3_4.png'
+        'imagenes/proyectos/proyecto3/proyecto3.png',
+        'imagenes/proyectos/proyecto3/proyecto3_2.png',
+        'imagenes/proyectos/proyecto3/proyecto3_3.png',
+        'imagenes/proyectos/proyecto3/proyecto3_4.png'
+      ]
+    },
+    piedras:{
+      title: 'Props piedras',
+      desc: 'Para la clase de modelado organico se nos pidio hacer escenarios y yo hice esta montaña de rocas',
+      tags:['3d','Diseño de assets','Blender'],
+      imgs:[
+        'imagenes/proyectos/proyecto4/proyecto4.png',
+        'imagenes/proyectos/proyecto4/proyecto4_2.png',
+        'imagenes/proyectos/proyecto4/proyecto4_3.png',
+        'imagenes/proyectos/proyecto4/proyecto4_4.png',
+        'imagenes/proyectos/proyecto4/proyecto4_5.png',
+        'imagenes/proyectos/proyecto4/proyecto4_6.png'
       ]
     }
   };
@@ -296,6 +329,22 @@
     if (e.key === 'ArrowLeft') shiftSlide(-1);
     if (e.key === 'ArrowRight') shiftSlide(1);
   });
+
+  function filtrar(categoria) {
+  document.querySelectorAll('.filtro').forEach(function(btn) {
+    btn.classList.remove('activo');
+  });
+  event.target.classList.add('activo');
+
+  document.querySelectorAll('.project-card').forEach(function(card) {
+    var cats = card.dataset.categoria || '';
+    if (categoria === 'todos' || cats.split(' ').indexOf(categoria) !== -1) {
+      card.classList.remove('oculto');
+    } else {
+      card.classList.add('oculto');
+    }
+  });
+}
 </script>
 
 </body>
