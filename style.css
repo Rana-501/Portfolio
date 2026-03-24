@@ -184,7 +184,7 @@ section { margin-bottom: 4rem; padding-top: 1rem; }
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-muted);
-  max-width: 600px;
+  max-width: 100%;
 }
 
 .badge-row {
@@ -537,7 +537,9 @@ section { margin-bottom: 4rem; padding-top: 1rem; }
 
   nav a { font-size: 0.7rem; padding: 0.4rem 0.65rem; }
 
-  .btn-cv { margin-top: 0.75rem; font-size: 0.65rem; padding: 0.5rem 1rem; }
+  .btn-cv { width: 100%;
+    margin-top: 0.75rem;
+    order: 99; }
 
   .side-contact {
     display: flex;
